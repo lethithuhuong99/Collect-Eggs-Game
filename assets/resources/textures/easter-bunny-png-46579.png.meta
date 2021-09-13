@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "0fd56053-5f98-4195-a8d7-496d800edaa1",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1056,
+  "height": 1378,
+  "platformSettings": {},
+  "subMetas": {
+    "easter-bunny-png-46579": {
+      "ver": "1.0.4",
+      "uuid": "c8c11805-cf38-4f18-a0a7-81fdacc9b183",
+      "rawTextureUuid": "0fd56053-5f98-4195-a8d7-496d800edaa1",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -2,
+      "offsetY": -7.5,
+      "trimX": 26,
+      "trimY": 47,
+      "width": 1000,
+      "height": 1299,
+      "rawWidth": 1056,
+      "rawHeight": 1378,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
