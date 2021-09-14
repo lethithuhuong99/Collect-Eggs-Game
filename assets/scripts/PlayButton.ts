@@ -7,9 +7,9 @@ export default class PlayButton extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        cc.director.preloadScene('game');
+        cc.director.preloadScene('GamePlay');
         this.node.on('touchstart', function () {
-            cc.director.loadScene("game");
+            cc.director.loadScene("GamePlay");
         });
     }
 

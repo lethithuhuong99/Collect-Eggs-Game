@@ -31,10 +31,13 @@
       },
       {
         "__id__": 27
+      },
+      {
+        "__id__": 28
       }
     ],
     "_prefab": {
-      "__id__": 28
+      "__id__": 29
     },
     "_opacity": 255,
     "_color": {
@@ -999,6 +1002,23 @@
     },
     "yesBtn": {
       "__id__": 20
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "d7972opV4xAr5PjJIo7McpI",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 185
     },
     "_id": ""
   },

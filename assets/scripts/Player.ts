@@ -30,28 +30,12 @@ export default class Player extends cc.Component {
     })
     jumpAudio: cc.AudioClip = null;
 
-    // runJumpAction() {
-    //     // jump up
-    //     var jumpUp = cc.tween().by(this.jumpDuration, { y: this.jumpHeight }, { easing: 'sineOut' });
-
-    //     // jump down
-    //     var jumpDown = cc.tween().by(this.jumpDuration, { y: -this.jumpHeight }, { easing: 'sineIn' });
-
-    //     // Create a easing and perform actions in the order of "jumpUp", "jumpDown"
-    //     var tween = cc.tween().sequence(jumpUp, jumpDown).call(this.playJumpSound, this);
-    //     // repeat
-    //     return cc.tween().repeatForever(tween);
-    // }
-
     playJumpSound() {
         // Invoke sound engine to play the sound
         cc.audioEngine.playEffect(this.jumpAudio, false);
     }
 
     onLoad() {
-        // Initialize the jump action
-        // var jumpAction = this.runJumpAction();
-        // cc.tween(this.node).then(jumpAction).start()
 
         // acceleration direction switch
         this.accLeft = false;
