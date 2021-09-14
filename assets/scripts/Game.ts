@@ -23,6 +23,9 @@ export default class Game extends cc.Component {
     btnPause: cc.Node = null;
 
     @property(cc.Node)
+    btnExit: cc.Node = null;
+
+    @property(cc.Node)
     clock: cc.Node = null;
 
     // reference of score label
@@ -43,7 +46,7 @@ export default class Game extends cc.Component {
     score: number;
     groundY: number;
     // limit time: (s)
-    private _timeLimit: number = 10;
+    private _timeLimit: number = 2*60;
     private listTexture: [cc.SpriteFrame] = [null];
     // time play game
     countTime: number = 0;
@@ -102,7 +105,6 @@ export default class Game extends cc.Component {
     }
 
     update(dt) {
-        // Update timer for each frame, when a new star is not generated after exceeding duration
         if (this.isPause)
             return;
         else {
@@ -132,6 +134,8 @@ export default class Game extends cc.Component {
 
     gameOver() {
         this.isPause = true;
+        this.player.getComponent(Player).isPause = true;
+
         this.player.stopAllActions();
         this.player.y = -100;
         this.player.x = 0;
@@ -139,9 +143,13 @@ export default class Game extends cc.Component {
         popup.setParent(this.node);
         const popupCmp = popup.getComponent(CompletePopup);
         popupCmp.setTitle('GameOver');
-        popupCmp.setContent("You have collected: " + this.score + " eggs!")
-        popupCmp.setYesCallback(() => {
+        popupCmp.setContent("You have collected: " + this.score + " eggs!");
+        popupCmp.setBtnContent('Play', 'Exit')
+        popupCmp.setNoCallback(() => {
             cc.director.loadScene('GameHome');
+        })
+        popupCmp.setYesCallback(() => {
+            cc.director.loadScene('GamePlay');
         })
     }
 
@@ -233,6 +241,25 @@ export default class Game extends cc.Component {
             )
         );
         this.listTexture.push(...listEggTexture);
+    }
+
+    onExit() {
+        this.isPause = true;
+        this.player.getComponent(Player).isPause = true;
+        this.player.stopAllActions();
+        const popup = cc.instantiate(this.completePopup);
+        popup.setParent(this.node);
+        const popupCmp = popup.getComponent(CompletePopup);
+        popupCmp.setTitle('Confirmation');
+        popupCmp.setContent("You want to exit the game?");
+        popupCmp.setBtnContent('Yes', 'No')
+        popupCmp.setNoCallback(() => {
+            this.isPause = false;
+            this.player.getComponent(Player).isPause = false;
+        })
+        popupCmp.setYesCallback(() => {
+            cc.director.loadScene('GameHome');
+        })
     }
 
 }
